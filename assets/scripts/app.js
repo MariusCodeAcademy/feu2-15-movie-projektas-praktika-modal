@@ -17,17 +17,23 @@ let mainMoviesArr = [];
 
 // testavimui prisidedam filma iskart
 addNewMovieHandler({
-  id: Math.random().toFixed(8).slice(2),
+  id: generateId(),
   imageUrl: 'https://picsum.photos/id/1003/1181/1772',
   rating: '4',
   title: 'Bambi1',
 });
-addNewMovieHandler({
-  id: Math.random().toFixed(8).slice(2),
-  imageUrl: 'https://picsum.photos/id/1003/1181/1772',
-  rating: '4',
-  title: 'Bambi2',
-});
+// addNewMovieHandler({
+//   id: generateId(),
+//   imageUrl: 'https://picsum.photos/id/1006/1181/1772',
+//   rating: '4',
+//   title: 'Mountain',
+// });
+// addNewMovieHandler({
+//   id: generateId(),
+//   imageUrl: 'https://picsum.photos/id/1015/1181/1772',
+//   rating: '4',
+//   title: 'River',
+// });
 console.log('mainMoviesArr ===', mainMoviesArr);
 
 console.log('els ===', els);
@@ -57,6 +63,7 @@ els.addMovieForm.addEventListener('submit', (event) => {
   console.log('add movie');
   // gauti input reiksmes ====================================================
   const newMovieDetails = {
+    id: generateId(),
     title: els.addMovieForm.elements.title.value.trim(),
     imageUrl: els.addMovieForm.elements['image-url'].value.trim(),
     rating: els.addMovieForm.elements.rating.value.trim(),
@@ -89,11 +96,22 @@ function addNewMovieHandler(newMovieObj) {
   // jei viskas gerai pridedam ta filma i mainMoviesArr
   mainMoviesArr.push(newMovieObj);
 
-  // paslepti elementa kuris rodomas jei neturim nei vieno filmo
-  els.noMoviesContainer.style.display = 'none';
+  renderMovies();
+}
 
+function renderMovies() {
   // issivalyti saraso konteineri kad nebutu dubliuojami elementai su apend
   els.moviesContainer.innerHTML = '';
+
+  // noMoviesContainer rodyti arba ne, priklausomai ar turim nors viena movie
+  if (mainMoviesArr.length > 0) {
+    // paslepti elementa kuris rodomas jei neturim nei vieno filmo
+    els.noMoviesContainer.style.display = 'none';
+  } else {
+    // rodyti elementa kuris rodomas jei neturim nei vieno filmo
+    els.noMoviesContainer.style.display = 'block';
+    return;
+  }
 
   // sukti cikla per visa mainMoviesArr. sugeneruoti naujus movies html elementus is masyvo
   mainMoviesArr.forEach((mObj) => {
@@ -135,6 +153,8 @@ function makeOneMovieHtmlEl(newMovieObj) {
   // isorini el sukuriam su createElement
   const liEl = document.createElement('li');
   liEl.className = 'movie-element';
+  // prisidenam data-movie-id atributa kad atskirti individualu li el
+  liEl.dataset.movieId = newMovieObj.id;
   // vidinius elementus su string (veliau reiktu perdaryti i createElement)
   const liInsideHtml = `
   <div class="movie-element__image">
@@ -156,5 +176,25 @@ function makeOneMovieHtmlEl(newMovieObj) {
 }
 
 function movieDeleteHandler(event) {
-  console.log('delete movie', event.target);
+  // console.log('delete movie', event.target);
+  const deleteIconEl = event.target;
+  const movieLiElToDelete = deleteIconEl.closest('li');
+  const idOfElToBeDeleted = movieLiElToDelete.dataset.movieId;
+  console.log('idOfElToBeDeleted ===', idOfElToBeDeleted);
+
+  // mainMoviesArr paliekam viska isskyrus ta elementa ant kurio paspausta delete
+  mainMoviesArr = mainMoviesArr.filter((mObj) => mObj.id !== idOfElToBeDeleted);
+  console.log('mainMoviesArr ===', mainMoviesArr);
+
+  // bet kada ivykus pokyciui mes kvieciam render
+  renderMovies();
+}
+
+// =====================================================================================
+// HELPER FUNCTIONS =====================================================================
+// =====================================================================================
+// =====================================================================================
+
+function generateId() {
+  return Math.random().toFixed(8).slice(2);
 }
