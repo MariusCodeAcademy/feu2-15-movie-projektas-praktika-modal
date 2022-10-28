@@ -9,6 +9,7 @@ const els = {
   cancelMovieBtn: document.querySelector('.btn--passive'),
   addMovieForm: document.getElementById('add-movie-form'),
   moviesContainer: document.getElementById('movie-list'),
+  noMoviesContainer: document.getElementById('entry-text'),
 };
 
 // bendras globalus filmu kintamasis
@@ -60,15 +61,10 @@ els.addMovieForm.addEventListener('submit', (event) => {
 
   // jei viskas nera tusciu lauku ================================================
   addNewMovieHandler(newMovieDetails);
-
-  // const newMovieHtmlEl = makeOneMovieHtmlEl(newMovieDetails);
-
-  // // talpinam ta movie i dom
-  // console.log('talpinam movie');
-  // els.moviesContainer.append(newMovieHtmlEl);
+  // kai pridedam sekmingai filma isvalyti forma ir paslepti modala ir backdrop
+  closeMovieModal();
+  els.addMovieForm.reset();
 });
-
-// kai pridedam sekmingai filma isvalyti forma ir paslepti modala ir backdrop
 
 // MAIN FUNCTIONS =====================================================================
 // =====================================================================================
@@ -77,6 +73,9 @@ els.addMovieForm.addEventListener('submit', (event) => {
 function addNewMovieHandler(newMovieObj) {
   // jei viskas gerai pridedam ta filma i mainMoviesArr
   mainMoviesArr.push(newMovieObj);
+
+  // paslepti elementa kuris rodomas jei neturim nei vieno filmo
+  els.noMoviesContainer.style.display = 'none';
 
   // sukti cikla per visa mainMoviesArr. sugeneruoti naujus movies html elementus is masyvo
   mainMoviesArr.forEach((mObj) => {
