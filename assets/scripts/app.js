@@ -15,6 +15,21 @@ const els = {
 // bendras globalus filmu kintamasis
 let mainMoviesArr = [];
 
+// testavimui prisidedam filma iskart
+addNewMovieHandler({
+  id: Math.random().toFixed(8).slice(2),
+  imageUrl: 'https://picsum.photos/id/1003/1181/1772',
+  rating: '4',
+  title: 'Bambi1',
+});
+addNewMovieHandler({
+  id: Math.random().toFixed(8).slice(2),
+  imageUrl: 'https://picsum.photos/id/1003/1181/1772',
+  rating: '4',
+  title: 'Bambi2',
+});
+console.log('mainMoviesArr ===', mainMoviesArr);
+
 console.log('els ===', els);
 
 // EVENT LISTENERS =====================================================================
@@ -77,6 +92,9 @@ function addNewMovieHandler(newMovieObj) {
   // paslepti elementa kuris rodomas jei neturim nei vieno filmo
   els.noMoviesContainer.style.display = 'none';
 
+  // issivalyti saraso konteineri kad nebutu dubliuojami elementai su apend
+  els.moviesContainer.innerHTML = '';
+
   // sukti cikla per visa mainMoviesArr. sugeneruoti naujus movies html elementus is masyvo
   mainMoviesArr.forEach((mObj) => {
     // jei viskas gerai sukuriam html vieno movie
@@ -113,7 +131,7 @@ function closeMovieModal() {
 */
 
 function makeOneMovieHtmlEl(newMovieObj) {
-  console.log('newMovieObj ===', newMovieObj);
+  // console.log('newMovieObj ===', newMovieObj);
   // isorini el sukuriam su createElement
   const liEl = document.createElement('li');
   liEl.className = 'movie-element';
@@ -137,6 +155,6 @@ function makeOneMovieHtmlEl(newMovieObj) {
   return liEl;
 }
 
-function movieDeleteHandler() {
-  console.log('delete movie');
+function movieDeleteHandler(event) {
+  console.log('delete movie', event.target);
 }
