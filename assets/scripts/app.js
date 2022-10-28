@@ -125,10 +125,18 @@ function makeOneMovieHtmlEl(newMovieObj) {
   <div class="movie-element__info">
     <h2>${newMovieObj.title}</h2>
     <p>${newMovieObj.rating}/5 stars</p>
+    <i class="delete fa fa-trash" aria-hidden="true"></i>
   </div>
   `;
   // dedam string elementu i li elementa
   liEl.insertAdjacentHTML('afterbegin', liInsideHtml);
   // console.log(liEl);
+  // taikomes i sukurta delete iconele
+  const deleteBtnEl = liEl.querySelector('.delete');
+  deleteBtnEl.addEventListener('click', movieDeleteHandler);
   return liEl;
+}
+
+function movieDeleteHandler() {
+  console.log('delete movie');
 }
