@@ -22,18 +22,18 @@ addNewMovieHandler({
   rating: '4',
   title: 'Bambi1',
 });
-// addNewMovieHandler({
-//   id: generateId(),
-//   imageUrl: 'https://picsum.photos/id/1006/1181/1772',
-//   rating: '4',
-//   title: 'Mountain',
-// });
-// addNewMovieHandler({
-//   id: generateId(),
-//   imageUrl: 'https://picsum.photos/id/1015/1181/1772',
-//   rating: '4',
-//   title: 'River',
-// });
+addNewMovieHandler({
+  id: generateId(),
+  imageUrl: 'https://picsum.photos/id/1006/1181/1772',
+  rating: '4',
+  title: 'Mountain',
+});
+addNewMovieHandler({
+  id: generateId(),
+  imageUrl: 'https://picsum.photos/id/1015/1181/1772',
+  rating: '4',
+  title: 'River',
+});
 console.log('mainMoviesArr ===', mainMoviesArr);
 
 console.log('els ===', els);
