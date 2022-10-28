@@ -35,6 +35,29 @@ els.addMovieForm.addEventListener('submit', (event) => {
   // stabdom perkrovima
   event.preventDefault();
   console.log('add movie');
+  // gauti input reiksmes
+  const newMovieDetails = {
+    title: els.addMovieForm.elements.title.value.trim(),
+    imageUrl: els.addMovieForm.elements['image-url'].value.trim(),
+    rating: els.addMovieForm.elements.rating.value.trim(),
+  };
+  console.log('newMovieDetails ===', newMovieDetails);
+  // mini validacija
+  // jei nors vienas laukas neivestas
+  if (
+    newMovieDetails.title === '' ||
+    newMovieDetails.imageUrl === '' ||
+    newMovieDetails.rating === ''
+  ) {
+    // stabdom tolimesni filmo pridejo vygdyma
+    console.log('stop nes ne viskas ivesta');
+    return;
+  }
+
+  // jei viskas gerai sukuriam html vieno movie
+
+  // talpinam ta movie i dom
+  console.log('talpinam movie');
 });
 
 // MAIN FUNCTIONS =====================================================================
