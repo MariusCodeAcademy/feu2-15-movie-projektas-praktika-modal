@@ -1,0 +1,119 @@
+<mxfile host="65bd71144e">
+    <diagram id="DqvB1b_ml_UBgAkNDYVj" name="Page-1">
+        <mxGraphModel dx="787" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="START" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="40" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="ADD MOVIE&lt;br&gt;Click" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="170" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="4" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="SHOW FORM" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="6" target="8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="USER supildo form" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="50" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="sukuria&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="50" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="10" target="11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;div style=&quot;color: rgb(255 , 255 , 255) ; background-color: rgb(25 , 53 , 73) ; font-family: &amp;#34;cascadia code&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 16px ; line-height: 22px&quot;&gt;newMovieDetails&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="80" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="11" target="13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;div style=&quot;line-height: 22px&quot;&gt;&lt;span style=&quot;background-color: rgb(42 , 42 , 42)&quot;&gt;mini validacija&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 22px&quot;&gt;&lt;span style=&quot;background-color: rgb(42 , 42 , 42)&quot;&gt;ar yra tusiu lauku?&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="190" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.351;entryY=-0.03;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="13" target="21">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="540" y="440" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="NE" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="15">
+                    <mxGeometry x="-0.2517" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="13">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="660" y="340" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="TAIP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="16">
+                    <mxGeometry x="-0.1249" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="300" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;div style=&quot;line-height: 22px&quot;&gt;return&lt;/div&gt;&lt;div style=&quot;line-height: 22px&quot;&gt;nutraukiam pridejima&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="660" y="315" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="21" target="24">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;div style=&quot;color: rgb(255 , 255 , 255) ; background-color: rgb(25 , 53 , 73) ; font-family: &amp;#34;cascadia code&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 16px ; line-height: 22px&quot;&gt;&lt;div style=&quot;font-family: &amp;#34;cascadia code&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 22px&quot;&gt;&lt;span style=&quot;color: #ffc600&quot;&gt;addNewMovieHandler&lt;/span&gt;&lt;span style=&quot;color: #e1efff&quot;&gt;(&lt;/span&gt;newMovieDetails&lt;span style=&quot;color: #e1efff&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="450" width="430" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;div style=&quot;color: rgb(255 , 255 , 255) ; background-color: rgb(25 , 53 , 73) ; font-family: &amp;#34;cascadia code&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 16px ; line-height: 22px&quot;&gt;mainMoviesArr&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+                    <mxGeometry x="790" y="570" width="160" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.007;entryY=0.643;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="24" target="22">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="PUSH" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="25">
+                    <mxGeometry x="-0.3303" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="24" target="28">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;div style=&quot;color: rgb(255 , 255 , 255) ; background-color: rgb(25 , 53 , 73) ; font-family: &amp;#34;cascadia code&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 16px ; line-height: 22px&quot;&gt;newMovieDetails&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="570" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="28" target="29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=1;entryDx=0;entryDy=-15;entryPerimeter=0;" edge="1" parent="1" source="28" target="22">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="CIKLAS per mainMoviesArr" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="490" y="650" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Sugeneruojam ir atvaizduojam tiek elementu kiek yra mainMoviesArr" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="490" y="760" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="33" target="35">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="&lt;div style=&quot;color: rgb(255 , 255 , 255) ; background-color: rgb(25 , 53 , 73) ; font-family: &amp;#34;cascadia code&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 16px ; line-height: 22px&quot;&gt;&lt;div style=&quot;font-family: &amp;#34;cascadia code&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 22px&quot;&gt;&lt;div style=&quot;font-family: &amp;#34;cascadia code&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 22px&quot;&gt;els&lt;span style=&quot;color: #e1efff&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #9effff&quot;&gt;moviesContainer&lt;/span&gt;&lt;span style=&quot;color: #e1efff&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffc600&quot;&gt;append&lt;/span&gt;&lt;span style=&quot;color: #e1efff&quot;&gt;(&lt;/span&gt;newMovieHtmlEl&lt;span style=&quot;color: #e1efff&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="820" width="410" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="END" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="950" width="120" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

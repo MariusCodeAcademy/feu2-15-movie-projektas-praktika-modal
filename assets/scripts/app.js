@@ -11,6 +11,9 @@ const els = {
   moviesContainer: document.getElementById('movie-list'),
 };
 
+// bendras globalus filmu kintamasis
+let mainMoviesArr = [];
+
 console.log('els ===', els);
 
 // EVENT LISTENERS =====================================================================
@@ -55,17 +58,34 @@ els.addMovieForm.addEventListener('submit', (event) => {
     return;
   }
 
-  // jei viskas gerai sukuriam html vieno movie ================================================
-  const newMovieHtmlEl = makeOneMovieHtmlEl(newMovieDetails);
+  // jei viskas nera tusciu lauku ================================================
+  addNewMovieHandler(newMovieDetails);
 
-  // talpinam ta movie i dom
-  console.log('talpinam movie');
-  els.moviesContainer.append(newMovieHtmlEl);
+  // const newMovieHtmlEl = makeOneMovieHtmlEl(newMovieDetails);
+
+  // // talpinam ta movie i dom
+  // console.log('talpinam movie');
+  // els.moviesContainer.append(newMovieHtmlEl);
 });
+
+// kai pridedam sekmingai filma isvalyti forma ir paslepti modala ir backdrop
 
 // MAIN FUNCTIONS =====================================================================
 // =====================================================================================
 // =====================================================================================
+
+function addNewMovieHandler(newMovieObj) {
+  // jei viskas gerai pridedam ta filma i mainMoviesArr
+  mainMoviesArr.push(newMovieObj);
+
+  // sukti cikla per visa mainMoviesArr. sugeneruoti naujus movies html elementus is masyvo
+  mainMoviesArr.forEach((mObj) => {
+    // jei viskas gerai sukuriam html vieno movie
+    const newMovieHtmlEl = makeOneMovieHtmlEl(mObj);
+    // talpinam ta movie i dom
+    els.moviesContainer.append(newMovieHtmlEl);
+  });
+}
 
 function closeMovieModal() {
   console.log('closeMovieModal fn');
