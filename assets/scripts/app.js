@@ -55,6 +55,7 @@ els.addMovieForm.addEventListener('submit', (event) => {
   }
 
   // jei viskas gerai sukuriam html vieno movie
+  makeOneMovieHtmlEl(newMovieDetails);
 
   // talpinam ta movie i dom
   console.log('talpinam movie');
@@ -70,4 +71,25 @@ function closeMovieModal() {
   els.addMovieModal.classList.remove('visible');
   // paslepti backdrop
   els.backdrop.classList.remove('visible');
+}
+
+/**
+ * Sukuria ir grazina li elmenta is argumetu gauto objekto reiksmiu
+ * @param {object} newMovieObj
+ */
+
+/*
+<li class="movie-element">
+  <div class="movie-element__image">
+    <img src="https://picsum.photos/id/1003/600/500" alt="element__image">
+  </div>
+  <div class="movie-element__info">
+    <h2>Title</h2>
+    <p>rating/5 stars</p>
+  </div>
+</li>
+*/
+
+function makeOneMovieHtmlEl(newMovieObj) {
+  console.log('newMovieObj ===', newMovieObj);
 }
