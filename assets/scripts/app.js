@@ -8,6 +8,7 @@ const els = {
   backdrop: document.getElementById('backdrop'),
   cancelMovieBtn: document.querySelector('.btn--passive'),
   addMovieForm: document.getElementById('add-movie-form'),
+  moviesContainer: document.getElementById('movie-list'),
 };
 
 console.log('els ===', els);
@@ -35,14 +36,14 @@ els.addMovieForm.addEventListener('submit', (event) => {
   // stabdom perkrovima
   event.preventDefault();
   console.log('add movie');
-  // gauti input reiksmes
+  // gauti input reiksmes ====================================================
   const newMovieDetails = {
     title: els.addMovieForm.elements.title.value.trim(),
     imageUrl: els.addMovieForm.elements['image-url'].value.trim(),
     rating: els.addMovieForm.elements.rating.value.trim(),
   };
   console.log('newMovieDetails ===', newMovieDetails);
-  // mini validacija
+  // mini validacija =========================================================
   // jei nors vienas laukas neivestas
   if (
     newMovieDetails.title === '' ||
@@ -54,11 +55,12 @@ els.addMovieForm.addEventListener('submit', (event) => {
     return;
   }
 
-  // jei viskas gerai sukuriam html vieno movie
-  makeOneMovieHtmlEl(newMovieDetails);
+  // jei viskas gerai sukuriam html vieno movie ================================================
+  const newMovieHtmlEl = makeOneMovieHtmlEl(newMovieDetails);
 
   // talpinam ta movie i dom
   console.log('talpinam movie');
+  els.moviesContainer.append(newMovieHtmlEl);
 });
 
 // MAIN FUNCTIONS =====================================================================
@@ -75,7 +77,8 @@ function closeMovieModal() {
 
 /**
  * Sukuria ir grazina li elmenta is argumetu gauto objekto reiksmiu
- * @param {object} newMovieObj
+ * @param {*} newMovieObj
+ *
  */
 
 /*
@@ -92,4 +95,21 @@ function closeMovieModal() {
 
 function makeOneMovieHtmlEl(newMovieObj) {
   console.log('newMovieObj ===', newMovieObj);
+  // isorini el sukuriam su createElement
+  const liEl = document.createElement('li');
+  liEl.className = 'movie-element';
+  // vidinius elementus su string (veliau reiktu perdaryti i createElement)
+  const liInsideHtml = `
+  <div class="movie-element__image">
+    <img src="${newMovieObj.imageUrl}" alt="element__image">
+  </div>
+  <div class="movie-element__info">
+    <h2>${newMovieObj.title}</h2>
+    <p>${newMovieObj.rating}/5 stars</p>
+  </div>
+  `;
+  // dedam string elementu i li elementa
+  liEl.insertAdjacentHTML('afterbegin', liInsideHtml);
+  // console.log(liEl);
+  return liEl;
 }
