@@ -13,4 +13,4 @@
 
 2. prisideti filtra filtruoti pagal title
 
-3. 
+3. jei per sunku. Tai gryztam i init saka ir pradedam viska nuo pradziu. atliekam panasiai tuos pacius funkcionalumo dalykus
