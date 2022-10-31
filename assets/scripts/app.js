@@ -19,18 +19,19 @@ const mainMoviesSuperObj = {
   movies: [],
   add: function (movieObj) {
     console.log('adding movie', movieObj.title);
-    mainMoviesSuperObj.movies.push(movieObj);
-    console.log(mainMoviesSuperObj.movies);
+    // this === mainMoviesSuperObj
+    this.movies.push(movieObj);
+    console.log(this.movies);
     renderMovies();
   },
   remove: function (id) {
     // mainMoviesArr paliekam viska isskyrus ta elementa ant kurio paspausta delete
-    mainMoviesSuperObj.movies = mainMoviesSuperObj.movies.filter((mObj) => mObj.id !== id);
+    this.movies = this.movies.filter((mObj) => mObj.id !== id);
     console.log('mainMoviesSuperObj.movies === ', mainMoviesSuperObj.movies);
     renderMovies();
   },
   doWeHaveMovies: function () {
-    return !!mainMoviesSuperObj.movies.length;
+    return !!this.movies.length;
   },
 };
 
