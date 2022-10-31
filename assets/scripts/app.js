@@ -183,9 +183,7 @@ function weHaveErrors(chekObj) {
   return [chekObj.title, chekObj.imageUrl, chekObj.rating].includes('');
   //
 }
-function weHaveErrors(chekObj) {
-  return [weHaveErrors, chekObj.imageUrl, chekObj.rating].includes('');
-}
+
 // =====================================================================================
 // HELPER FUNCTIONS =====================================================================
 // =====================================================================================
