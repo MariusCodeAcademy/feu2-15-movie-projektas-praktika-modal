@@ -15,20 +15,40 @@ const els = {
 // bendras globalus filmu kintamasis
 let mainMoviesArr = [];
 
+const mainMoviesSuperObj = {
+  movies: [],
+  add: function (movieObj) {
+    console.log('adding movie', movieObj.title);
+    mainMoviesSuperObj.movies.push(movieObj);
+    console.log(mainMoviesSuperObj.movies);
+    renderMovies();
+  },
+  remove: function (id) {
+    // mainMoviesArr paliekam viska isskyrus ta elementa ant kurio paspausta delete
+    mainMoviesSuperObj.movies = mainMoviesSuperObj.movies.filter((mObj) => mObj.id !== id);
+    console.log('mainMoviesSuperObj.movies === ', mainMoviesSuperObj.movies);
+    renderMovies();
+  },
+  doWeHaveMovies: function () {
+    return !!mainMoviesSuperObj.movies.length;
+  },
+};
+
+console.log('doWeHaveMovies ===', mainMoviesSuperObj.doWeHaveMovies());
 // testavimui prisidedam filma iskart
-addNewMovieHandler({
+mainMoviesSuperObj.add({
   id: generateId(),
   imageUrl: 'https://picsum.photos/id/1003/1181/1772',
   rating: '4',
   title: 'Bambi1',
 });
-addNewMovieHandler({
+mainMoviesSuperObj.add({
   id: generateId(),
   imageUrl: 'https://picsum.photos/id/1006/1181/1772',
   rating: '4',
   title: 'Mountain',
 });
-addNewMovieHandler({
+mainMoviesSuperObj.add({
   id: generateId(),
   imageUrl: 'https://picsum.photos/id/1015/1181/1772',
   rating: '4',
@@ -43,12 +63,7 @@ console.log('els ===', els);
 // =====================================================================================
 
 // paspaudimas ant Add Movie Btn
-els.addMovieBtn.addEventListener('click', () => {
-  // parodyti modala
-  els.addMovieModal.classList.add('visible');
-  // parodyti backdrop
-  els.backdrop.classList.add('visible');
-});
+els.addMovieBtn.addEventListener('click', showMovieForm);
 
 // uzdeti paspaudimo pasiklausyma ant backdrop
 els.backdrop.addEventListener('click', closeMovieModal);
@@ -57,7 +72,12 @@ els.backdrop.addEventListener('click', closeMovieModal);
 els.cancelMovieBtn.addEventListener('click', closeMovieModal);
 
 // klausomes formos issiuntimo ir stabdom perkrovima
-els.addMovieForm.addEventListener('submit', (event) => {
+els.addMovieForm.addEventListener('submit', movieAddFormHandler);
+
+// MAIN FUNCTIONS =====================================================================
+// =====================================================================================
+// =====================================================================================
+function movieAddFormHandler(event) {
   // stabdom perkrovima
   event.preventDefault();
   console.log('add movie');
@@ -70,41 +90,31 @@ els.addMovieForm.addEventListener('submit', (event) => {
   };
   console.log('newMovieDetails ===', newMovieDetails);
   // mini validacija =========================================================
-  // jei nors vienas laukas neivestas
-  if (
-    newMovieDetails.title === '' ||
-    newMovieDetails.imageUrl === '' ||
-    newMovieDetails.rating === ''
-  ) {
-    // stabdom tolimesni filmo pridejo vygdyma
+  if (weHaveErrors(newMovieDetails)) {
     console.log('stop nes ne viskas ivesta');
     return;
   }
 
   // jei viskas nera tusciu lauku ================================================
-  addNewMovieHandler(newMovieDetails);
+  mainMoviesSuperObj.add(newMovieDetails);
   // kai pridedam sekmingai filma isvalyti forma ir paslepti modala ir backdrop
   closeMovieModal();
   els.addMovieForm.reset();
-});
-
-// MAIN FUNCTIONS =====================================================================
-// =====================================================================================
-// =====================================================================================
-
-function addNewMovieHandler(newMovieObj) {
-  // jei viskas gerai pridedam ta filma i mainMoviesArr
-  mainMoviesArr.push(newMovieObj);
-
-  renderMovies();
+  //
+}
+function showMovieForm() {
+  // parodyti modala
+  els.addMovieModal.classList.add('visible');
+  // parodyti backdrop
+  els.backdrop.classList.add('visible');
 }
 
 function renderMovies() {
   // issivalyti saraso konteineri kad nebutu dubliuojami elementai su apend
   els.moviesContainer.innerHTML = '';
-
+  console.log('doWeHaveMovies ===', mainMoviesSuperObj.doWeHaveMovies());
   // noMoviesContainer rodyti arba ne, priklausomai ar turim nors viena movie
-  if (mainMoviesArr.length > 0) {
+  if (mainMoviesSuperObj.doWeHaveMovies()) {
     // paslepti elementa kuris rodomas jei neturim nei vieno filmo
     els.noMoviesContainer.style.display = 'none';
   } else {
@@ -114,7 +124,7 @@ function renderMovies() {
   }
 
   // sukti cikla per visa mainMoviesArr. sugeneruoti naujus movies html elementus is masyvo
-  mainMoviesArr.forEach((mObj) => {
+  mainMoviesSuperObj.movies.forEach((mObj) => {
     // jei viskas gerai sukuriam html vieno movie
     const newMovieHtmlEl = makeOneMovieHtmlEl(mObj);
     // talpinam ta movie i dom
@@ -135,18 +145,6 @@ function closeMovieModal() {
  * @param {*} newMovieObj
  *
  */
-
-/*
-<li class="movie-element">
-  <div class="movie-element__image">
-    <img src="https://picsum.photos/id/1003/600/500" alt="element__image">
-  </div>
-  <div class="movie-element__info">
-    <h2>Title</h2>
-    <p>rating/5 stars</p>
-  </div>
-</li>
-*/
 
 function makeOneMovieHtmlEl(newMovieObj) {
   // console.log('newMovieObj ===', newMovieObj);
@@ -176,20 +174,18 @@ function makeOneMovieHtmlEl(newMovieObj) {
 }
 
 function movieDeleteHandler(event) {
-  // console.log('delete movie', event.target);
-  const deleteIconEl = event.target;
-  const movieLiElToDelete = deleteIconEl.closest('li');
-  const idOfElToBeDeleted = movieLiElToDelete.dataset.movieId;
-  console.log('idOfElToBeDeleted ===', idOfElToBeDeleted);
-
+  const idOfElToBeDeleted = findClosestLiDataId(event.target);
   // mainMoviesArr paliekam viska isskyrus ta elementa ant kurio paspausta delete
-  mainMoviesArr = mainMoviesArr.filter((mObj) => mObj.id !== idOfElToBeDeleted);
-  console.log('mainMoviesArr ===', mainMoviesArr);
-
-  // bet kada ivykus pokyciui mes kvieciam render
-  renderMovies();
+  mainMoviesSuperObj.remove(idOfElToBeDeleted);
 }
 
+function weHaveErrors(chekObj) {
+  return [chekObj.title, chekObj.imageUrl, chekObj.rating].includes('');
+  //
+}
+function weHaveErrors(chekObj) {
+  return [weHaveErrors, chekObj.imageUrl, chekObj.rating].includes('');
+}
 // =====================================================================================
 // HELPER FUNCTIONS =====================================================================
 // =====================================================================================
@@ -197,4 +193,13 @@ function movieDeleteHandler(event) {
 
 function generateId() {
   return Math.random().toFixed(8).slice(2);
+}
+
+function findClosestLiDataId(fromThisElement) {
+  // console.log('delete movie', event.target);
+  const deleteIconEl = fromThisElement;
+  const movieLiElToDelete = deleteIconEl.closest('li');
+  const idOfElToBeDeleted = movieLiElToDelete.dataset.movieId;
+  console.log('idOfElToBeDeleted ===', idOfElToBeDeleted);
+  return idOfElToBeDeleted;
 }
